@@ -7,7 +7,7 @@ A [Tampermonkey](https://www.tampermonkey.net/) script for parsing "Google Forms
 ### What does it do?
 Creates a button in the bottom-right corner of the page.
 
-By pressing the button, parses the questions and copies them to the clipboard.
+By pressing the button, parses the questions and copies them into the clipboard.
 
 Supports only checkbox-, radio-button-, dropdown- and plaintext- questions.
 
