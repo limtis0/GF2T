@@ -4,8 +4,8 @@
 // @namespace      https://github.com/limtis0/
 // @author         https://github.com/limtis0/
 // @license        MIT
-// @version        1.0
-// @match          http*://docs.google.com/forms/d/e/*
+// @version        1.1
+// @match          http*://docs.google.com/forms/*
 // ==/UserScript==
 
 // Radiogroups
@@ -24,6 +24,7 @@ const dropdownOptionsSelector = '[role="listbox"] [role="option"]:not(:nth-of-ty
 const textInputSelector = 'input[type="text"]';
 
 // General
+const mainListSelector = '[role="list"]'
 const questionsSelector = '[role="list"]:not(:first-of-type) > [role="listitem"]';
 const headerSelector = '[role="heading"]:first-child span';
 
@@ -118,13 +119,13 @@ function createButton() {
     // Add a callback function to the button
     button.addEventListener('click', () => {
         navigator.clipboard.writeText(getQuestions());
-    })
-    .catch(error => {
-        console.log(`Failed to copy the questions:\n${error}`);
     });
 }
 
 (function() {
     'use strict';
-    createButton();
+
+    if (isElement(document.body, mainListSelector)) {
+        createButton();
+    }
 })();
